@@ -27,6 +27,7 @@ import { Bicyclesfake1Component } from './pages/bicyclesfake1/bicyclesfake1.comp
 import { Accessoriesfake2Component } from './pages/accessoriesfake2/accessoriesfake2.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { UpdateprofileComponent } from './pages/updateprofile/updateprofile.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { UpdateprofileComponent } from './pages/updateprofile/updateprofile.comp
     ContactComponent,
     Bicyclesfake1Component,
     Accessoriesfake2Component,
-    UpdateprofileComponent
+    UpdateprofileComponent,
+    UpdateprofileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

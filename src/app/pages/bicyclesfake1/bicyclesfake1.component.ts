@@ -3,7 +3,7 @@ import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
-
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-bicyclesfake1',
   templateUrl: './bicyclesfake1.component.html',
@@ -13,11 +13,12 @@ export class Bicyclesfake1Component {
   products: IProduct[] = [];
   product: IProduct | undefined;
   productId: string | undefined;
-
   constructor(
     private productService: ProductService,
     private router: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private userService: UserService,
+
   ) {
     this.router.params.subscribe(({ id }) => {
       this.productId = id;
@@ -40,6 +41,17 @@ export class Bicyclesfake1Component {
       (response) => {
         this.products = response.category.productId;
         console.log(this.products);
+      },
+      (error) => console.log(error)
+    );
+  }
+  addToCart() {
+    this.userService.updateCart({
+      productId: this.productId,
+      quantity: 1
+    }).subscribe(
+      (response) => {
+        alert("Thêm sản phẩm thành công")
       },
       (error) => console.log(error)
     );

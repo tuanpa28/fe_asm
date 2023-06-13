@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { IProduct } from '../interfaces/product';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -18,6 +19,16 @@ export class UserService {
     updateUser(data: { name: string, email: string }): Observable<any> {
         return this.http.put<any>(
             `http://localhost:8081/api/user/update`, data
+        );
+    }
+    updateCart(data: any) {
+        return this.http.put<any>(
+            `http://localhost:8081/api/cart`, data
+        );
+    }
+    deleteCart(id: any) {
+        return this.http.delete<any>(
+            `http://localhost:8081/api/cart/` + id
         );
     }
 }

@@ -23,6 +23,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AuthGuard } from './auth.guard';
 import { AccountComponent } from './pages/account/account.component';
 import { UpdateprofileComponent } from './pages/updateprofile/updateprofile.component';
+import { CartComponent } from './cart/cart.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -42,6 +44,7 @@ const routes: Routes = [
 
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
+      { path: 'cart', component: CartComponent },
     ],
   },
   {
