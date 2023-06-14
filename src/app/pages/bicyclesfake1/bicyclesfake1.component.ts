@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-bicyclesfake1',
   templateUrl: './bicyclesfake1.component.html',
@@ -18,6 +19,8 @@ export class Bicyclesfake1Component {
     private router: ActivatedRoute,
     private categoryService: CategoryService,
     private userService: UserService,
+    private route: Router,
+
 
   ) {
     this.router.params.subscribe(({ id }) => {
@@ -46,6 +49,11 @@ export class Bicyclesfake1Component {
     );
   }
   addToCart() {
+    const getUser = JSON.parse(localStorage.getItem('user') || '');
+    if (!getUser) {
+      this.route.navigate(['/signin'])
+      return;
+    }
     this.userService.updateCart({
       productId: this.productId,
       quantity: 1

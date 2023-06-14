@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row w-100">
       <div class="col-lg-12 col-md-12 col-12">
-        <p *ngIf="cart.length==0">Giỏ hàng trống</p>
+        <h1 *ngIf="cart.length==0">Giỏ hàng trống</h1>
         <table *ngIf="cart.length>0" id="shoppingCart" class="table table-condensed table-responsive">
           <thead>
             <tr>
@@ -49,12 +49,11 @@
           </tbody>
         </table>
         <div class="float-right text-right">
-          <h4>Subtotal:</h4>
           <!-- <h1>{{item.productId.quantity}}</h1> -->
         </div>
       </div>
     </div>
-    <div class="row mt-4 d-flex align-items-center">
+    <div *ngIf="cart.length>0" class="row mt-4 d-flex align-items-center">
       <div class="col-sm-6 order-md-2 text-right">
         <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
       </div>
