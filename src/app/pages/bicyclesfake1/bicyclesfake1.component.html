@@ -214,6 +214,45 @@
   </section>
 </div>
 
+<!-- comment -->
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+    <div class="d-flex flex-column col-md-8">
+
+      <div class="coment-bottom bg-white p-2 px-4">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+          <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+            <input formControlName="description" type="text" class="form-control mr-3" placeholder="Add comment"><button
+              class="btn btn-primary" type="submit" style="background-color: #007bff;">Comment</button>
+          </div>
+        </form>
+
+        <h1 class="py-6" *ngIf="product.comments.length===0">Chưa có bình luận nào về sản phẩm này</h1>
+        <ng-container *ngIf="product.comments.length>0">
+          <div style="background-color: rgb(241, 244, 244);padding:10px" *ngFor="let item of product.comments"
+            class="commented-section mt-2">
+            <div class="d-flex flex-row align-items-center commented-user">
+              <h5 class="mr-2 pb-2">Tên : {{item.userId.name}} </h5>
+            </div>
+            <div class="comment-text-sm">
+              <span>{{item.description}}</span>
+
+            </div>
+
+          </div>
+        </ng-container>
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
 <div class="lg:col-span-3 m-10" *ngIf="products.length">
   <h1 class="text-2xl font-bold mb-3">Sản phẩm tương tự</h1>
   <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

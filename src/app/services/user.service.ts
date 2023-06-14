@@ -31,4 +31,9 @@ export class UserService {
             `http://localhost:8081/api/cart/` + id
         );
     }
+    comment(data: any): Observable<any> {
+        return this.http.post<any>(
+            `http://localhost:8081/api/user/comment`, data
+        );
+    }
 }
